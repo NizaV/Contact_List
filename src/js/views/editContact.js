@@ -1,17 +1,28 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import PropTypes from "prop-types";
 
-export const AddContact = () => {
+export const EditContact = props => {
 	const { store, actions } = useContext(Context);
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [phone, setPhone] = useState("");
 	const [address, setAddress] = useState("");
+	useEffect(() => {
+		for (let contact of store.contacts) {
+			if (props.match.params.contactId == contact.id) {
+				setName(contact.full_name);
+				setEmail(contact.email);
+				setPhone(contact.phone);
+				setAddress(contact.address);
+			}
+		}
+	}, [store.contacts, props.match.params.contactId]);
 	return (
 		<div className="container">
 			<div>
-				<h1 className="text-center mt-5">Add a new contact</h1>
+				<h1 className="text-center mt-5">Edit contact</h1>
 				<form>
 					<div className="form-group">
 						<label>Full Name</label>
@@ -20,6 +31,7 @@ export const AddContact = () => {
 							type="text"
 							className="form-control"
 							placeholder="Full Name"
+							value={name}
 						/>
 					</div>
 					<div className="form-group">
@@ -29,6 +41,7 @@ export const AddContact = () => {
 							type="email"
 							className="form-control"
 							placeholder="Enter email"
+							value={email}
 						/>
 					</div>
 					<div className="form-group">
@@ -38,6 +51,7 @@ export const AddContact = () => {
 							type="phone"
 							className="form-control"
 							placeholder="Enter phone"
+							value={phone}
 						/>
 					</div>
 					<div className="form-group">
@@ -47,13 +61,14 @@ export const AddContact = () => {
 							type="text"
 							className="form-control"
 							placeholder="Enter address"
+							value={address}
 						/>
 					</div>
 					<button
-						onClick={() => actions.addContact(name, email, address, phone)}
+						onClick={() => actions.editContact(name, email, address, phone, props.match.params.contactId)}
 						type="button"
 						className="btn btn-primary form-control">
-						save
+						Save
 					</button>
 					<Link className="mt-3 w-100 text-center" to="/">
 						or get back to contacts
@@ -62,4 +77,8 @@ export const AddContact = () => {
 			</div>
 		</div>
 	);
+};
+
+EditContact.propTypes = {
+	match: PropTypes.object
 };

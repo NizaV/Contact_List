@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import MikePhoto from "../../img/m101.jpg";
+import { Context } from "../store/appContext";
 
 export const ContactCard = props => {
 	const [state, setState] = useState({
 		//initialize state here
 	});
+	const { store, actions } = useContext(Context);
 
 	return (
 		<li className="list-group-item">
@@ -16,17 +19,19 @@ export const ContactCard = props => {
 				</div>
 				<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
 					<div className=" float-right">
-						<button className="btn">
-							<i className="fas fa-pencil-alt mr-3" />
-						</button>
-						<button className="btn" onClick={() => props.onDelete()}>
+						<Link to={`/edit/${props.index}/${props.name}`}>
+							<button className="btn">
+								<i className="fas fa-pencil-alt mr-3" />
+							</button>
+						</Link>
+						<button className="btn" onClick={() => actions.deleteContact(props.match.params.contactId)}>
 							<i className="fas fa-trash-alt" />
 						</button>
 					</div>
-					<label className="name lead">Mike Anamendolla</label>
+					<label className="name lead">{props.name}</label>
 					<br />
 					<i className="fas fa-map-marker-alt text-muted mr-3" />
-					<span className="text-muted">5842 Hillcrest Rd</span>
+					<span className="text-muted">{props.address}</span>
 					<br />
 					<span
 						className="fa fa-phone fa-fw text-muted mr-3"
@@ -34,7 +39,7 @@ export const ContactCard = props => {
 						title=""
 						data-original-title="(870) 288-4149"
 					/>
-					<span className="text-muted small">(870) 288-4149</span>
+					<span className="text-muted small">{props.phone}</span>
 					<br />
 					<span
 						className="fa fa-envelope fa-fw text-muted mr-3"
@@ -42,7 +47,7 @@ export const ContactCard = props => {
 						data-original-title=""
 						title=""
 					/>
-					<span className="text-muted small text-truncate">mike.ana@example.com</span>
+					<span className="text-muted small text-truncate">{props.email}</span>
 				</div>
 			</div>
 		</li>
@@ -55,7 +60,13 @@ export const ContactCard = props => {
  **/
 ContactCard.propTypes = {
 	history: PropTypes.object,
-	onDelete: PropTypes.func
+	onDelete: PropTypes.func,
+	name: PropTypes.string,
+	email: PropTypes.string,
+	phone: PropTypes.string,
+	address: PropTypes.string,
+	index: PropTypes.number,
+	match: PropTypes.object
 };
 
 /**
