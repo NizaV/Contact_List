@@ -1,3 +1,5 @@
+const backendApiUrl = "https://3000-d9711888-b9ce-45eb-9d7d-408e499ef35c.ws-us02.gitpod.io";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -6,7 +8,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			loadSomeData: () => {
-				fetch("https://assets.breatheco.de/apis/fake/contact//agenda/nvera_agenda")
+				fetch(backendApiUrl + "/agenda")
 					.then(response => {
 						if (!response.ok) {
 							throw Error(response.statusText);
@@ -20,28 +22,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => console.log(error));
 			},
-			addContact: async (name, email, address, phone) => {
-				let response = await fetch("https://assets.breatheco.de/apis/fake/contact/", {
+			addContact: async (name, email, address, phone, history) => {
+				let response = await fetch(backendApiUrl + "/add", {
 					method: "POST",
 					body: JSON.stringify({
 						full_name: name,
 						email: email,
-						agenda_slug: "nvera_agenda",
 						address: address,
 						phone: phone
 					}),
 					headers: {
 						"Content-Type": "application/json"
 					}
-				});
+				})
+					.then(() => getActions().loadSomeData())
+					.then(() => history.push("/contacts"));
 			},
-			editContact: async (name, email, address, phone, index) => {
-				let response = await fetch("https://assets.breatheco.de/apis/fake/contact/" + index, {
+			editContact: async (name, email, address, phone, id) => {
+				let response = await fetch(backendApiUrl + "/update/" + id.toString(), {
 					method: "PUT",
 					body: JSON.stringify({
 						full_name: name,
 						email: email,
-						agenda_slug: "nvera_agenda",
 						address: address,
 						phone: phone
 					}),
@@ -51,20 +53,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 				getActions().loadSomeData();
 			},
-			deleteContact: async (name, email, address, phone, index) => {
-				let response = await fetch("https://assets.breatheco.de/apis/fake/contact/" + index, {
+			deleteContact: async id => {
+				let response = await fetch(backendApiUrl + "/delete/" + id.toString(), {
 					method: "DELETE",
-					body: JSON.stringify({
-						full_name: name,
-						email: email,
-						agenda_slug: "nvera_agenda",
-						address: address,
-						phone: phone
-					}),
 					headers: {
 						"Content-Type": "application/json"
 					}
-				});
+				}).then(() => getActions().loadSomeData());
 			}
 			//(Arrow) Functions that update the Store
 			// Remember to use the scope: scope.state.store & scope.setState()

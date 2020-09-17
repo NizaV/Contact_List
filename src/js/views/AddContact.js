@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import PropTypes from "prop-types";
 
-export const AddContact = () => {
+export const AddContact = props => {
 	const { store, actions } = useContext(Context);
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
@@ -11,7 +12,7 @@ export const AddContact = () => {
 	return (
 		<div className="container">
 			<div>
-				<h1 className="text-center mt-5">Add a new contact</h1>
+				<h1 className="text-center mt-5">Add a New Contact</h1>
 				<form>
 					<div className="form-group">
 						<label>Full Name</label>
@@ -50,7 +51,7 @@ export const AddContact = () => {
 						/>
 					</div>
 					<button
-						onClick={() => actions.addContact(name, email, address, phone)}
+						onClick={() => actions.addContact(name, email, address, phone, props.history)}
 						type="button"
 						className="btn btn-primary form-control">
 						save
@@ -62,4 +63,8 @@ export const AddContact = () => {
 			</div>
 		</div>
 	);
+};
+
+AddContact.propTypes = {
+	history: PropTypes.object
 };

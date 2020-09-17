@@ -8,8 +8,7 @@ export const Contacts = () => {
 	const { store, actions } = useContext(Context);
 
 	const [state, setState] = useState({
-		showModal: false,
-		id: null
+		showModal: false
 	});
 
 	return (
@@ -32,19 +31,14 @@ export const Contacts = () => {
 									phone={contact.phone}
 									address={contact.address}
 									index={contact.id}
-									onDelete={() => setState({ showModal: true, id: contact.id })}
+									onDelete={() => setState({ showModal: true })}
 								/>
 							);
 						})}
 					</ul>
 				</div>
 			</div>
-			<Modal
-				show={state.showModal}
-				text="Warning: Dont do it"
-				contactId={state.id}
-				onClose={() => setState({ showModal: false })}
-			/>
+			<Modal show={state.showModal} onClose={() => setState({ showModal: false })} />
 		</div>
 	);
 };
