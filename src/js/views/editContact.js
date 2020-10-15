@@ -64,12 +64,16 @@ export const EditContact = props => {
 							value={address}
 						/>
 					</div>
-					<button
-						onClick={() => actions.editContact(name, email, address, phone, props.match.params.contactId)}
-						type="button"
-						className="btn btn-primary form-control">
-						Save
-					</button>
+					<Link className="mt-3 w-100 text-center" to="/">
+						<button
+							onClick={() =>
+								actions.editContact(name, email, address, phone, props.match.params.contactId)
+							}
+							type="button"
+							className="btn btn-primary form-control">
+							Save
+						</button>
+					</Link>
 					<Link className="mt-3 w-100 text-center" to="/">
 						or get back to contacts
 					</Link>

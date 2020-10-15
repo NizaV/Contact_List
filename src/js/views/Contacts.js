@@ -15,6 +15,11 @@ export const Contacts = () => {
 	return (
 		<div className="container">
 			<div>
+				<p className="text-left my-3">
+					<Link className="btn btn-success" to="/">
+						CRM
+					</Link>
+				</p>
 				<p className="text-right my-3">
 					<Link className="btn btn-success" to="/add">
 						Add new contact
@@ -26,7 +31,7 @@ export const Contacts = () => {
 							return (
 								<ContactCard
 									key={index}
-									name={contact.full_name}
+									full_name={contact.full_name}
 									contactId={contact.id}
 									email={contact.email}
 									phone={contact.phone}

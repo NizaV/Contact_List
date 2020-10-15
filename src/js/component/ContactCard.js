@@ -19,7 +19,7 @@ export const ContactCard = props => {
 				</div>
 				<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
 					<div className=" float-right">
-						<Link to={`/edit/${props.index}/${props.name}`}>
+						<Link to={`/edit/${props.index}/${props.full_name}`}>
 							<button className="btn">
 								<i className="fas fa-pencil-alt mr-3" />
 							</button>
@@ -28,7 +28,7 @@ export const ContactCard = props => {
 							<i className="fas fa-trash-alt" />
 						</button>
 					</div>
-					<label className="name lead">{props.name}</label>
+					<label className="name lead">{props.full_name}</label>
 					<br />
 					<i className="fas fa-map-marker-alt text-muted mr-3" />
 					<span className="text-muted">{props.address}</span>
@@ -61,7 +61,7 @@ export const ContactCard = props => {
 ContactCard.propTypes = {
 	history: PropTypes.object,
 	onDelete: PropTypes.func,
-	name: PropTypes.string,
+	full_name: PropTypes.string,
 	email: PropTypes.string,
 	phone: PropTypes.string,
 	address: PropTypes.string,

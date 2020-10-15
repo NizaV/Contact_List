@@ -22,11 +22,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => console.log(error));
 			},
-			addContact: async (name, email, address, phone, history) => {
+			addContact: async (full_name, email, address, phone, history) => {
 				let response = await fetch(backendApiUrl + "/add", {
 					method: "POST",
 					body: JSON.stringify({
-						full_name: name,
+						full_name: full_name,
 						email: email,
 						address: address,
 						phone: phone
@@ -38,11 +38,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(() => getActions().loadSomeData())
 					.then(() => history.push("/contacts"));
 			},
-			editContact: async (name, email, address, phone, id) => {
+			editContact: async (full_name, email, address, phone, id) => {
 				let response = await fetch(backendApiUrl + "/update/" + id.toString(), {
 					method: "PUT",
 					body: JSON.stringify({
-						full_name: name,
+						full_name: full_name,
 						email: email,
 						address: address,
 						phone: phone
