@@ -2,7 +2,7 @@
 
 <h1 align="center">
   <br>
-  <img src="https://github.com/NizaV/Contact_List/blob/master/src/img/crmModel.png" alt="CRM Model" width="369">
+  <img src="https://github.com/NizaV/Contact_List/blob/master/src/img/crmModel.jpg" alt="CRM Model" width="369">
 </h1>
 
 <h4 align="center">A Contact Management Application with CRM Implementation</h4>
