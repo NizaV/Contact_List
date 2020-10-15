@@ -15,16 +15,9 @@ export const Contacts = () => {
 	return (
 		<div className="container">
 			<div>
-				<p className="text-left my-3">
-					<Link className="btn btn-success" to="/">
-						CRM
-					</Link>
-				</p>
-				<p className="text-right my-3">
-					<Link className="btn btn-success" to="/add">
-						Add new contact
-					</Link>
-				</p>
+				<div className="d-flex flex-row">
+					<h1>Contacts</h1>
+				</div>
 				<div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
 					<ul className="list-group pull-down" id="contact-list">
 						{store.contacts.map((contact, index) => {
