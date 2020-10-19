@@ -14,7 +14,7 @@ export class Navbar extends React.Component {
 					</Link>
 				</div>
 				<div className="ml-auto">
-					<Link to="/addContact">
+					<Link to="/add">
 						<button className="btn btn-primary">Add Contact</button>
 					</Link>
 				</div>

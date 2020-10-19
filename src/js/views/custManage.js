@@ -7,21 +7,21 @@ import "../../styles/crm.scss";
 export const CustManage = props => {
 	return (
 		<div className="container">
-			<div className="row">
-				<div className="column">
-					<h2>Column 1</h2>
+			<div className="d-flex flex-row justify-content-between">
+				<div className=" column">
+					<h3 className="border-bottom border-dark text-center">In Process</h3>
 					<p>Some text..</p>
 				</div>
-				<div className="column">
-					<h2>Column 2</h2>
+				<div className=" column">
+					<h3 className="border-bottom border-dark text-center">In Contact</h3>
 					<p>Some text..</p>
 				</div>
-				<div className="column">
-					<h2>Column 3</h2>
+				<div className=" column">
+					<h3 className="border-bottom border-dark text-center">Won</h3>
 					<p>Some text..</p>
 				</div>
-				<div className="column">
-					<h2>Column 4</h2>
+				<div className=" column">
+					<h3 className="border-bottom border-dark text-center">Loss</h3>
 					<p>Some text..</p>
 				</div>
 			</div>
