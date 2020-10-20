@@ -27,7 +27,7 @@ export const CustManage = props => {
 
 					<div className="overflow-auto">
 						<ul
-							className="list-group pull-down"
+							className="list-group pull-down col-height"
 							id="inProcess"
 							onDrop={event => handleDragOver(event)}
 							onDragOver={event => allowDrop(event)}>
@@ -54,8 +54,7 @@ export const CustManage = props => {
 					<h3 className="border-bottom border-dark text-center pt-2 pb-2 mb-1">In Contact</h3>
 					<div className="overflow-auto">
 						<ul
-							className="list-group pull-down"
-							style={{ height: "100%" }}
+							className="list-group pull-down col-height"
 							id="inContact"
 							onDrop={event => handleDragOver(event)}
 							onDragOver={event => allowDrop(event)}>
