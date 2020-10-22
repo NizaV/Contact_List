@@ -9,6 +9,7 @@ export const EditContact = props => {
 	const [email, setEmail] = useState("");
 	const [phone, setPhone] = useState("");
 	const [address, setAddress] = useState("");
+	const [status, setStatus] = useState("");
 	useEffect(() => {
 		for (let contact of store.contacts) {
 			if (props.match.params.contactId == contact.id) {
@@ -16,6 +17,7 @@ export const EditContact = props => {
 				setEmail(contact.email);
 				setPhone(contact.phone);
 				setAddress(contact.address);
+				setStatus(contact.status);
 			}
 		}
 	}, [store.contacts, props.match.params.contactId]);
@@ -64,10 +66,20 @@ export const EditContact = props => {
 							value={address}
 						/>
 					</div>
+					<div className="form-group">
+						<label>Status</label>
+						<input
+							onChange={event => setStatus(event.target.value)}
+							type="text"
+							className="form-control"
+							placeholder="Change Status"
+							value={status}
+						/>
+					</div>
 					<Link className="mt-3 w-100 text-center" to="/">
 						<button
 							onClick={() =>
-								actions.editContact(name, email, address, phone, props.match.params.contactId)
+								actions.editContact(name, email, address, phone, status, props.match.params.contactId)
 							}
 							type="button"
 							className="btn btn-primary form-control">

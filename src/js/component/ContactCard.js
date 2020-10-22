@@ -48,6 +48,14 @@ export const ContactCard = props => {
 						title=""
 					/>
 					<span className="text-muted small text-truncate">{props.email}</span>
+					<br />
+					<span
+						className="fas fa-spinner text-muted mr-3"
+						data-toggle="tooltip"
+						data-original-title=""
+						title=""
+					/>
+					<span className="text-muted small text-truncate">{props.status}</span>
 				</div>
 			</div>
 		</li>
@@ -65,6 +73,7 @@ ContactCard.propTypes = {
 	email: PropTypes.string,
 	phone: PropTypes.string,
 	address: PropTypes.string,
+	status: PropTypes.string,
 	index: PropTypes.number,
 	match: PropTypes.object,
 	contactId: PropTypes.number

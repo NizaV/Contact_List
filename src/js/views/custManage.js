@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
@@ -7,18 +7,44 @@ import "../../styles/crm.scss";
 
 export const CustManage = props => {
 	const { store, actions } = useContext(Context);
-	const allowDrop = ev => {
-		ev.preventDefault();
-	};
-	const handleDragOver = ev => {
-		ev.dataTransfer.setData("text", ev.target.id);
-	};
-
-	const handleDrop = ev => {
-		ev.preventDefault();
-		var data = ev.dataTransfer.getData("text");
-		ev.inContact.appendChild(document.getElementById(data));
-	};
+	const [draggedOrder, setDraggedOrder] = useState(null);
+	const handleDragStart = useCallback(contact => setDraggedOrder(contact), []);
+	const handleDrop = useCallback(
+		e => {
+			console.log("e", e.target.id);
+			if (e.target.id == "inProcess") {
+				actions.updateStatus(
+					{
+						status: "In Process"
+					},
+					draggedOrder.id
+				);
+			} else if (e.target.id == "inContact") {
+				actions.updateStatus(
+					{
+						status: "In Contact"
+					},
+					draggedOrder.id
+				);
+			} else if (e.target.id == "aWin") {
+				actions.updateStatus(
+					{
+						status: "Won"
+					},
+					draggedOrder.id
+				);
+			} else {
+				actions.updateStatus(
+					{
+						status: "Loss"
+					},
+					draggedOrder.id
+				);
+			}
+			setDraggedOrder(null);
+		},
+		[draggedOrder, actions.updateStatus]
+	);
 	return (
 		<div className="container uni-height">
 			<div className="d-flex flex-row justify-content-between uni-height">
@@ -29,48 +55,161 @@ export const CustManage = props => {
 						<ul
 							className="list-group pull-down col-height"
 							id="inProcess"
-							onDrop={event => handleDragOver(event)}
-							onDragOver={event => allowDrop(event)}>
+							onDragOver={e => {
+								e.preventDefault();
+								e.stopPropagation();
+							}}
+							onDrop={handleDrop}>
 							{store.contacts.map((contact, index) => {
-								return (
-									<div key={contact.id} draggable="true" onDragStart={event => handleDragOver(event)}>
-										<CrmContactCard
-											key={index}
-											full_name={contact.full_name}
-											contactId={contact.id}
-											email={contact.email}
-											phone={contact.phone}
-											address={contact.address}
-											index={contact.id}
-											onDelete={() => setState({ showModal: true, id: contact.id })}
-										/>
-									</div>
-								);
+								if (contact.status == "In Process") {
+									return (
+										<div
+											key={contact.id}
+											draggable
+											onDrag={e => {
+												e.preventDefault();
+												e.stopPropagation();
+											}}
+											onDragStart={e => handleDragStart(contact)}>
+											<CrmContactCard
+												key={index}
+												full_name={contact.full_name}
+												contactId={contact.id}
+												email={contact.email}
+												phone={contact.phone}
+												address={contact.address}
+												status={contact.status}
+												index={contact.id}
+												onDelete={() => setState({ showModal: true, id: contact.id })}
+											/>
+										</div>
+									);
+								}
 							})}
 						</ul>
 					</div>
 				</div>
-				<div className=" column">
+				<div className="d-flex flex-column column">
 					<h3 className="border-bottom border-dark text-center pt-2 pb-2 mb-1">In Contact</h3>
 					<div className="overflow-auto">
 						<ul
 							className="list-group pull-down col-height"
 							id="inContact"
-							onDrop={event => handleDragOver(event)}
-							onDragOver={event => allowDrop(event)}>
+							onDragOver={e => {
+								e.preventDefault();
+								e.stopPropagation();
+							}}
+							onDrop={handleDrop}>
 							{store.contacts.map((contact, index) => {
-								return <div key={contact.id} draggable="true" onDragStart="drag(event)"></div>;
+								if (contact.status == "In Contact") {
+									return (
+										<div
+											key={contact.id}
+											draggable
+											onDrag={e => {
+												e.preventDefault();
+												e.stopPropagation();
+											}}
+											onDragStart={e => handleDragStart(contact)}>
+											<CrmContactCard
+												key={index}
+												full_name={contact.full_name}
+												contactId={contact.id}
+												email={contact.email}
+												phone={contact.phone}
+												address={contact.address}
+												status={contact.status}
+												index={contact.id}
+												onDelete={() => setState({ showModal: true, id: contact.id })}
+											/>
+										</div>
+									);
+								}
 							})}
 						</ul>
 					</div>
 				</div>
-				<div className=" column">
-					<h3 className="border border-dark text-center pt-2 pb-2 mb-1 bg-success">Won</h3>
-					<p>Some text..</p>
+				<div className="d-flex flex-column column">
+					<h3 className="border-bottom border-dark text-center pt-2 pb-2 mb-1">Won</h3>
+
+					<div className="overflow-auto">
+						<ul
+							className="list-group pull-down col-height"
+							id="aWin"
+							onDragOver={e => {
+								e.preventDefault();
+								e.stopPropagation();
+							}}
+							onDrop={handleDrop}>
+							{store.contacts.map((contact, index) => {
+								if (contact.status == "Won") {
+									return (
+										<div
+											key={contact.id}
+											draggable
+											onDrag={e => {
+												e.preventDefault();
+												e.stopPropagation();
+											}}
+											onDragStart={e => handleDragStart(contact)}>
+											<CrmContactCard
+												key={index}
+												full_name={contact.full_name}
+												contactId={contact.id}
+												email={contact.email}
+												phone={contact.phone}
+												address={contact.address}
+												status={contact.status}
+												index={contact.id}
+												onDelete={() => setState({ showModal: true, id: contact.id })}
+											/>
+										</div>
+									);
+								}
+							})}
+						</ul>
+					</div>
 				</div>
-				<div className=" column">
-					<h3 className="border border-dark text-center pt-2 pb-2 mb-1 bg-danger">Loss</h3>
-					<p>Some text..</p>
+				<div className="d-flex flex-column column">
+					<h3 className="border-bottom border-dark text-center pt-2 pb-2 mb-1">Loss</h3>
+
+					<div className="overflow-auto">
+						<ul
+							className="list-group pull-down col-height"
+							id="aLoss"
+							onDragOver={e => {
+								e.preventDefault();
+								e.stopPropagation();
+							}}
+							onDrop={handleDrop}>
+							{store.contacts.map((contact, index) => {
+								if (contact.status == "Loss") {
+									return (
+										<div
+											key={contact.id}
+											draggable
+											onDrag={e => {
+												e.preventDefault();
+												e.stopPropagation();
+											}}
+											onDragStart={e => handleDragStart(contact)}>
+											<CrmContactCard
+												key={index}
+												full_name={contact.full_name}
+												contactId={contact.id}
+												email={contact.email}
+												phone={contact.phone}
+												address={contact.address}
+												status={contact.status}
+												index={contact.id}
+												onDelete={() => setState({ showModal: true, id: contact.id })}
+											/>
+										</div>
+									);
+								}
+							})}
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -9,6 +9,7 @@ export const AddContact = props => {
 	const [email, setEmail] = useState("");
 	const [phone, setPhone] = useState("");
 	const [address, setAddress] = useState("");
+	const [status, setStatus] = useState("");
 	return (
 		<div className="container">
 			<div>
@@ -50,8 +51,17 @@ export const AddContact = props => {
 							placeholder="Enter address"
 						/>
 					</div>
+					<div className="form-group">
+						<label>Status</label>
+						<input
+							onChange={event => setStatus(event.target.value)}
+							type="text"
+							className="form-control"
+							placeholder="Enter Status: In Process, In Contact, Won, Loss"
+						/>
+					</div>
 					<button
-						onClick={() => actions.addContact(name, email, address, phone, props.history)}
+						onClick={() => actions.addContact(name, email, address, phone, status, props.history)}
 						type="button"
 						className="btn btn-primary form-control">
 						save

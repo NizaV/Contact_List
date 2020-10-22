@@ -29,6 +29,7 @@ export const Contacts = () => {
 									email={contact.email}
 									phone={contact.phone}
 									address={contact.address}
+									status={contact.status}
 									index={contact.id}
 									onDelete={() => setState({ showModal: true, id: contact.id })}
 								/>
