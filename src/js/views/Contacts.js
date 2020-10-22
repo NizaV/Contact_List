@@ -14,7 +14,7 @@ export const Contacts = () => {
 
 	return (
 		<div className="container">
-			<div>
+			<div className="mb-3">
 				<div className="d-flex flex-row">
 					<h1>Contacts</h1>
 				</div>

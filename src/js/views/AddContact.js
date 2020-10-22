@@ -12,7 +12,7 @@ export const AddContact = props => {
 	const [status, setStatus] = useState("");
 	return (
 		<div className="container">
-			<div>
+			<div className="mb-4">
 				<h1 className="text-center mt-5">Add a New Contact</h1>
 				<form>
 					<div className="form-group">
@@ -63,10 +63,10 @@ export const AddContact = props => {
 					<button
 						onClick={() => actions.addContact(name, email, address, phone, status, props.history)}
 						type="button"
-						className="btn btn-primary form-control">
+						className="btn btn-info form-control">
 						save
 					</button>
-					<Link className="mt-3 w-100 text-center" to="/">
+					<Link className="mt-3 w-100 text-center text-info" to="/">
 						or get back to contacts
 					</Link>
 				</form>

@@ -10,6 +10,7 @@ import { AddContact } from "./views/AddContact.js";
 import { EditContact } from "./views/editContact.js";
 import { CustManage } from "./views/custManage.js";
 import { Navbar } from "./component/navbar.js";
+import { Footer } from "./component/footer.js";
 
 export const Layout = () => {
 	return (
@@ -26,6 +27,7 @@ export const Layout = () => {
 						<Route exact path="/edit/:contactId/:contactName" component={EditContact} />
 						<Route render={() => <h1 className="notfound">Not found!</h1>} />
 					</Switch>
+					<Footer />
 				</div>
 			</BrowserRouter>
 		</div>

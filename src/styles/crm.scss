@@ -5,7 +5,7 @@
 /* Create four equal columns that floats next to each other */
 .column {
   border: 2px solid black;
-  border-radius: 8px;
+  border-radius: 6px;
   width: 23%;
 }
 
@@ -25,11 +25,11 @@
 }
 
 .incontact-col {
-  background-color: steelblue;
+  background-color: #042f66;
   color: white;
 }
 .process-col {
-  background-color: darkgoldenrod;
+  background-color: rgb(221, 176, 63);
   color: white;
 }
 .won-col {

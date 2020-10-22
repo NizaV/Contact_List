@@ -46,10 +46,12 @@ export const CustManage = props => {
 		[draggedOrder, actions.updateStatus]
 	);
 	return (
-		<div className="container uni-height">
+		<div className="container uni-height mb-3">
 			<div className="d-flex flex-row justify-content-between uni-height">
 				<div className="d-flex flex-column column">
-					<h3 className="border-bottom border-dark text-center pt-2 pb-2 mb-1 incontact-col">In Process</h3>
+					<h3 className="border-bottom border-dark text-center pt-2 pb-2 mb-1 incontact-col rounded-top">
+						In Process
+					</h3>
 
 					<div className="overflow-auto">
 						<ul
@@ -90,7 +92,9 @@ export const CustManage = props => {
 					</div>
 				</div>
 				<div className="d-flex flex-column column">
-					<h3 className="border-bottom border-dark text-center pt-2 pb-2 mb-1 process-col">In Contact</h3>
+					<h3 className="border-bottom border-dark text-center pt-2 pb-2 mb-1 process-col rounded-top">
+						In Contact
+					</h3>
 					<div className="overflow-auto">
 						<ul
 							className="list-group pull-down col-height"
@@ -130,7 +134,7 @@ export const CustManage = props => {
 					</div>
 				</div>
 				<div className="d-flex flex-column column">
-					<h3 className="border-bottom border-dark text-center pt-2 pb-2 mb-1 won-col">Won</h3>
+					<h3 className="border-bottom border-dark text-center pt-2 pb-2 mb-1 won-col rounded-top">Won</h3>
 
 					<div className="overflow-auto">
 						<ul
@@ -171,7 +175,7 @@ export const CustManage = props => {
 					</div>
 				</div>
 				<div className="d-flex flex-column column">
-					<h3 className="border-bottom border-dark text-center pt-2 pb-2 mb-1 loss-col">Loss</h3>
+					<h3 className="border-bottom border-dark text-center pt-2 pb-2 mb-1 loss-col rounded-top">Loss</h3>
 
 					<div className="overflow-auto">
 						<ul

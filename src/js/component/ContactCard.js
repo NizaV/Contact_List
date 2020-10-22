@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import MikePhoto from "../../img/m101.jpg";
+import ProfIcon from "../../img/profile-icon.png";
 import { Context } from "../store/appContext";
 
 export const ContactCard = props => {
@@ -16,9 +16,9 @@ export const ContactCard = props => {
 			<div className="row w-100">
 				<div className="col-12 col-sm-6 col-md-3 px-0">
 					<img
-						src={MikePhoto}
-						alt="Mike Anamendolla"
-						className="rounded-circle mx-auto d-block img-fluid border border-primary"
+						src={ProfIcon}
+						alt="Profile Pic"
+						className="rounded-circle mx-auto d-block img-fluid border border-info"
 					/>
 				</div>
 				<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
