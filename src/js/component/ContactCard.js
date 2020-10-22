@@ -15,7 +15,11 @@ export const ContactCard = props => {
 		<li className="list-group-item">
 			<div className="row w-100">
 				<div className="col-12 col-sm-6 col-md-3 px-0">
-					<img src={MikePhoto} alt="Mike Anamendolla" className="rounded-circle mx-auto d-block img-fluid" />
+					<img
+						src={MikePhoto}
+						alt="Mike Anamendolla"
+						className="rounded-circle mx-auto d-block img-fluid border border-primary"
+					/>
 				</div>
 				<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
 					<div className=" float-right">

@@ -16,7 +16,9 @@ export const CrmContactCard = props => {
 			<div className="card" style={{ width: "100%" }}>
 				<div>
 					<div className="card-body">
-						<h5 className="card-title">{props.full_name}</h5>
+						<h5 className="card-title">
+							<u>{props.full_name}</u>
+						</h5>
 						<p className="card-text">
 							<span
 								className="fa fa-phone fa-fw text-muted mr-3"
@@ -34,9 +36,6 @@ export const CrmContactCard = props => {
 							/>
 							<span className="text-muted small text-truncate">{props.email}</span>
 						</p>
-						<a href="#" className="btn btn-primary">
-							Go somewhere
-						</a>
 					</div>
 				</div>
 			</div>
