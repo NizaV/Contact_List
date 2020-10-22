@@ -1,4 +1,4 @@
-const backendApiUrl = "http://0.0.0.0:3000";
+const backendApiUrl = "https://contact-crm-vera.herokuapp.com/";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
