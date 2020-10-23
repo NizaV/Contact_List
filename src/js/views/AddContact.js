@@ -13,7 +13,7 @@ export const AddContact = props => {
 	return (
 		<div className="container">
 			<div className="mb-4">
-				<h1 className="text-center mt-5">Add a New Contact</h1>
+				<h1 className="text-center mt-5">{"Add New Contact"}</h1>
 				<form>
 					<div className="form-group">
 						<label>Full Name</label>
