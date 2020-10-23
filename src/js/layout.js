@@ -13,9 +13,10 @@ import { Navbar } from "./component/navbar.js";
 import { Footer } from "./component/footer.js";
 
 export const Layout = () => {
+	const basename = process.env.BASENAME || "";
 	return (
 		<div>
-			<BrowserRouter>
+			<BrowserRouter basename={basename}>
 				<div>
 					<Navbar />
 					<Switch>
