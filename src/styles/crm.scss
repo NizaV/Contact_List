@@ -1,10 +1,12 @@
+@import "./index.scss";
+
 * {
   box-sizing: border-box;
 }
 
 /* Create four equal columns that floats next to each other */
 .column {
-  border: 2px solid black;
+  border: 2px solid $secondary-color;
   border-radius: 6px;
   width: 23%;
 }
@@ -17,7 +19,7 @@
 }
 
 .uni-height {
-    height: 600px;
+  height: 600px;
 }
 
 .col-height {
@@ -25,18 +27,18 @@
 }
 
 .incontact-col {
-  background-color: #042f66;
+  background: $primary-gradient;
   color: white;
 }
 .process-col {
-  background-color: rgb(221, 176, 63);
+  background: $primary-gradient;
   color: white;
 }
 .won-col {
-  background-color: darkgreen;
+  background: $primary-gradient;
   color: white;
 }
 .loss-col {
-  background-color: firebrick;
+  background: $primary-gradient;
   color: white;
 }

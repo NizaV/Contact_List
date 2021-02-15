@@ -1,3 +1,17 @@
+@import "./index.scss";
+
 .bgstyle {
-    background-color: #35bdc2;
+  background-color: $primary-color;
+}
+
+.icons,
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+.github-icon {
+  height: 46px;
+  width: 30px;
+  color: white;
 }
