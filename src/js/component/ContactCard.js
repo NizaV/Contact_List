@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import ProfIcon from "../../img/profile-icon.png";
 import { Context } from "../store/appContext";
+import "../../styles/contact-card.scss";
 
 export const ContactCard = props => {
 	const [state, setState] = useState({
@@ -12,7 +13,7 @@ export const ContactCard = props => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<li className="list-group-item">
+		<li className="list-group-item contact-card">
 			<div className="row w-100">
 				<div className="col-12 col-sm-6 col-md-3 px-0">
 					<img
