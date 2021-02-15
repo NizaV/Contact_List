@@ -13,7 +13,7 @@ export const Contacts = () => {
 	});
 
 	return (
-		<div className="container">
+		<div className="container h-100">
 			<div className="mb-3">
 				<div className="d-flex flex-row">
 					<h1>Contacts</h1>
