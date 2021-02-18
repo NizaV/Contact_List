@@ -12,7 +12,7 @@ export const CrmContactCard = props => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<li className="list-group-item">
+		<li className="list-group-item crm-card">
 			<div className="card" style={{ width: "100%" }}>
 				<div>
 					<div className="card-body">
