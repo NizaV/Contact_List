@@ -6,9 +6,6 @@ import MikePhoto from "../../img/m101.jpg";
 import { Context } from "../store/appContext";
 
 export const CrmContactCard = props => {
-	const [state, setState] = useState({
-		//initialize state here
-	});
 	const { store, actions } = useContext(Context);
 
 	return (
@@ -16,9 +13,7 @@ export const CrmContactCard = props => {
 			<div className="card" style={{ width: "100%" }}>
 				<div>
 					<div className="card-body">
-						<h5 className="card-title">
-							<u>{props.full_name}</u>
-						</h5>
+						<h5 className="card-title">{props.full_name}</h5>
 						<p className="card-text">
 							<span
 								className="fa fa-phone fa-fw text-muted mr-3"
