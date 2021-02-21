@@ -13,12 +13,12 @@ export const Contacts = () => {
 	});
 
 	return (
-		<div className="container h-100">
-			<div className="mb-3">
+		<div className="container">
+			<div className="h-100 mb-3">
 				<div className="d-flex flex-row">
 					<h1>Contacts</h1>
 				</div>
-				<div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
+				<div id="contacts" className="h-100" aria-expanded="true">
 					<ul className="list-group pull-down" id="contact-list">
 						{store.contacts.map((contact, index) => {
 							return (

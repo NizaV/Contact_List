@@ -15,15 +15,16 @@ export const ContactCard = props => {
 	return (
 		<li className="list-group-item contact-card">
 			<div className="row w-100">
-				<div className="col-12 col-sm-6 col-md-3 px-0">
+				<div className="col-12 col-sm-6 col-md-3 px-0 text-center">
 					<img
 						src={ProfIcon}
 						alt="Profile Pic"
 						className="rounded-circle mx-auto d-block img-fluid border border-info"
 					/>
+					<label className="name lead mt-2">{props.full_name}</label>
 				</div>
-				<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
-					<div className=" float-right">
+				<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left pt-4">
+					<div className="float-right">
 						<Link to={`/edit/${props.index}/${props.full_name}`}>
 							<button className="btn">
 								<i className="fas fa-pencil-alt mr-3" />
@@ -33,8 +34,6 @@ export const ContactCard = props => {
 							<i className="fas fa-trash-alt" />
 						</button>
 					</div>
-					<label className="name lead">{props.full_name}</label>
-					<br />
 					<i className="fas fa-map-marker-alt text-muted mr-3" />
 					<span className="text-muted">{props.address}</span>
 					<br />
