@@ -58,13 +58,13 @@ export const ContactCard = props => {
 						</div>
 					</div>
 				</div>
-				<div className="col-12 col-md-2 text-center">
-					<Link to={`/edit/${props.index}/${props.full_name}`}>
-						<button className="btn">
-							<i className="fas fa-pencil-alt mr-3" />
+				<div className="col-12 col-md-2 d-flex flex-column justify-content-around align-items-center">
+					<Link to={`/edit/${props.index}/${props.full_name}`} className="text-center w-100 mb-3 mb-md-0">
+						<button className="btn cc-button">
+							<i className="fas fa-pencil-alt" />
 						</button>
 					</Link>
-					<button className="btn" onClick={() => props.onDelete()}>
+					<button className="btn cc-button" onClick={() => props.onDelete()}>
 						<i className="fas fa-trash-alt" />
 					</button>
 				</div>
