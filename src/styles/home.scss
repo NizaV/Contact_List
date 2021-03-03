@@ -1,0 +1,29 @@
+@import "./index.scss";
+
+.login-container {
+  border: $primary-color 1px solid;
+  border-radius: 15px;
+  margin: auto 8%;
+}
+
+@media (min-width: 768px) {
+  .login-container {
+    margin: 0px 22%;
+  }
+}
+
+.log-input {
+  border-color: $primary-color;
+}
+
+.log-btn {
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: #3374c2;
+  }
+
+  &:active {
+    background-color: #3384c2;
+  }
+}
