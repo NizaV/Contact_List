@@ -87,7 +87,7 @@ export const EditContact = props => {
 							Save
 						</button>
 					</Link>
-					<Link className="mt-3 w-100 text-center text-info" to="/">
+					<Link className="mt-3 w-100 text-center text-info" to="/contacts">
 						or get back to contacts
 					</Link>
 				</form>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "../../styles/home.scss";
 
 export const Home = () => {
@@ -19,10 +20,15 @@ export const Home = () => {
 						<Form.Group controlId="formBasicPassword">
 							<Form.Label>Password</Form.Label>
 							<Form.Control type="password" placeholder="Password" className="log-input" />
+							<Form.Text>
+								<Link className="text-muted" to="/">
+									{"Not a user? Let's get you started."}
+								</Link>
+							</Form.Text>
 						</Form.Group>
 						<div className="text-center">
 							<Button type="submit" className="w-50 log-btn">
-								Submit
+								Log In
 							</Button>
 						</div>
 					</Form>

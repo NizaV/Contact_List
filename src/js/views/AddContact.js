@@ -67,7 +67,7 @@ export const AddContact = props => {
 						className="btn btn-info form-control btn-style">
 						Save
 					</button>
-					<Link className="mt-3 w-100 text-center text-info" to="/">
+					<Link className="mt-3 w-100 text-center text-info" to="/contacts">
 						or get back to contacts
 					</Link>
 				</form>
