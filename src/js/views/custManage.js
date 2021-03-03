@@ -11,7 +11,6 @@ export const CustManage = props => {
 	const handleDragStart = useCallback(contact => setDraggedOrder(contact), []);
 	const handleDrop = useCallback(
 		e => {
-			console.log("e", e.target.id);
 			if (e.target.id == "inProcess") {
 				actions.updateStatus(
 					{

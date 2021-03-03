@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
+import "../../styles/addEdit-contact.scss";
 
 export const EditContact = props => {
 	const { store, actions } = useContext(Context);
@@ -82,7 +83,7 @@ export const EditContact = props => {
 								actions.editContact(name, email, address, phone, status, props.match.params.contactId)
 							}
 							type="button"
-							className="btn btn-info form-control">
+							className="btn btn-info form-control btn-style">
 							Save
 						</button>
 					</Link>

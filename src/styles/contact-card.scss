@@ -3,3 +3,9 @@
 .contact-card {
   border: 1px $secondary-color solid;
 }
+
+.cc-button {
+  color: white;
+  background-color: $primary-color;
+  width: 75%;
+}

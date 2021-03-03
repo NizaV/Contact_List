@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
-import "../../styles/add-contact.scss";
+import "../../styles/addEdit-contact.scss";
 
 export const AddContact = props => {
 	const { store, actions } = useContext(Context);

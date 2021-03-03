@@ -15,7 +15,7 @@ export const ContactCard = props => {
 	return (
 		<li className="list-group-item contact-card">
 			<div className="row w-100">
-				<div className="col-12 col-sm-6 col-md-3 px-0 text-center">
+				<div className="col-12 col-md-3 px-0 text-center">
 					<img
 						src={ProfIcon}
 						alt="Profile Pic"
@@ -23,43 +23,50 @@ export const ContactCard = props => {
 					/>
 					<label className="name lead mt-2">{props.full_name}</label>
 				</div>
-				<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left pt-4">
-					<div className="float-right">
-						<Link to={`/edit/${props.index}/${props.full_name}`}>
-							<button className="btn">
-								<i className="fas fa-pencil-alt mr-3" />
-							</button>
-						</Link>
-						<button className="btn" onClick={() => props.onDelete()}>
-							<i className="fas fa-trash-alt" />
-						</button>
+				<div className="col-12 col-md-7 text-center text-sm-left p-4">
+					<div className="row row-cols-2">
+						<div className="col-12 col-md-6 p-3">
+							<i className="fas fa-map-marker-alt text-muted mr-3" />
+							<span className="text-muted">{props.address}</span>
+						</div>
+						<div className="col-12 col-md-6 p-3">
+							<span
+								className="fa fa-phone fa-fw text-muted mr-3"
+								data-toggle="tooltip"
+								title=""
+								data-original-title="(870) 288-4149"
+							/>
+							<span className="text-muted small">{props.phone}</span>
+						</div>
+						<div className="col-12 col-md-6 p-3">
+							<span
+								className="fa fa-envelope fa-fw text-muted mr-3"
+								data-toggle="tooltip"
+								data-original-title=""
+								title=""
+							/>
+							<span className="text-muted small text-truncate">{props.email}</span>
+						</div>
+						<div className="col-12 col-md-6 p-3">
+							<span
+								className="fas fa-spinner text-muted mr-3"
+								data-toggle="tooltip"
+								data-original-title=""
+								title=""
+							/>
+							<span className="text-muted small text-truncate">{props.status}</span>
+						</div>
 					</div>
-					<i className="fas fa-map-marker-alt text-muted mr-3" />
-					<span className="text-muted">{props.address}</span>
-					<br />
-					<span
-						className="fa fa-phone fa-fw text-muted mr-3"
-						data-toggle="tooltip"
-						title=""
-						data-original-title="(870) 288-4149"
-					/>
-					<span className="text-muted small">{props.phone}</span>
-					<br />
-					<span
-						className="fa fa-envelope fa-fw text-muted mr-3"
-						data-toggle="tooltip"
-						data-original-title=""
-						title=""
-					/>
-					<span className="text-muted small text-truncate">{props.email}</span>
-					<br />
-					<span
-						className="fas fa-spinner text-muted mr-3"
-						data-toggle="tooltip"
-						data-original-title=""
-						title=""
-					/>
-					<span className="text-muted small text-truncate">{props.status}</span>
+				</div>
+				<div className="col-12 col-md-2 d-flex flex-column justify-content-around align-items-center">
+					<Link to={`/edit/${props.index}/${props.full_name}`} className="text-center w-100 mb-3 mb-md-0">
+						<button className="btn cc-button">
+							<i className="fas fa-pencil-alt" />
+						</button>
+					</Link>
+					<button className="btn cc-button" onClick={() => props.onDelete()}>
+						<i className="fas fa-trash-alt" />
+					</button>
 				</div>
 			</div>
 		</li>
