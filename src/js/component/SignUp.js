@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useSpring, animated } from "react-spring";
 
 export const SignUp = () => {
+	const [user, setUser] = useState({
+		email: "",
+		username: "",
+		password: ""
+	});
+
+	const history = () => useHistory();
+
 	function refreshPage() {
 		window.location.reload(false);
 	}
@@ -14,7 +22,7 @@ export const SignUp = () => {
 			<div className="h-100 row align-items-center">
 				<div className="login-container col">
 					<Form className="p-3">
-						<Form.Group controlId="formBasicPassword">
+						{/* <Form.Group controlId="formBasicPassword">
 							<Form.Label>First Name</Form.Label>
 							<Form.Control type="text" placeholder="First Name" className="log-input" />
 						</Form.Group>
@@ -22,19 +30,43 @@ export const SignUp = () => {
 						<Form.Group controlId="formBasicPassword">
 							<Form.Label>Last Name</Form.Label>
 							<Form.Control type="text" placeholder="Last Name" className="log-input" />
-						</Form.Group>
+						</Form.Group> */}
 
 						<Form.Group controlId="formBasicEmail">
 							<Form.Label>Email address</Form.Label>
-							<Form.Control type="email" placeholder="Enter email" className="log-input" />
+							<Form.Control
+								type="email"
+								placeholder="Enter email"
+								className="log-input"
+								onChange={e => setUser({ ...user, email: e.target.value })}
+								value={user.email}
+							/>
 							<Form.Text className="text-muted">
 								{"We'll never share your email with anyone else."}
 							</Form.Text>
 						</Form.Group>
 
+						<Form.Group controlId="formBasicEmail">
+							<Form.Label>Username</Form.Label>
+							<Form.Control
+								type="text"
+								placeholder="Enter username"
+								className="log-input"
+								onChange={e => setUser({ ...user, username: e.target.value })}
+								value={user.username}
+							/>
+							<Form.Text className="text-muted">{"This is you, be unique."}</Form.Text>
+						</Form.Group>
+
 						<Form.Group controlId="formBasicPassword">
 							<Form.Label>Password</Form.Label>
-							<Form.Control type="password" placeholder="Password" className="log-input" />
+							<Form.Control
+								type="password"
+								placeholder="Password"
+								className="log-input"
+								onChange={e => setUser({ ...user, password: e.target.value })}
+								value={user.password}
+							/>
 							<Form.Text>
 								<Link className="text-muted" to="/" onClick={refreshPage}>
 									{"Jk, I'm already signed up."}
@@ -42,7 +74,22 @@ export const SignUp = () => {
 							</Form.Text>
 						</Form.Group>
 						<div className="text-center">
-							<Button type="submit" className="w-50 log-btn">
+							<Button
+								type="submit"
+								className="w-50 log-btn"
+								onClick={e => {
+									actions.signUp(user.email, user.username, user.password);
+									if (result) {
+										history.push("/admin/user");
+									} else {
+										alert("Please check your credentials and try again");
+									}
+									setUser({
+										email: "",
+										username: "",
+										password: ""
+									});
+								}}>
 								Sign Up
 							</Button>
 						</div>

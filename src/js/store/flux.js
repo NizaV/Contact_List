@@ -1,8 +1,13 @@
-const backendApiUrl = "https://contact-crm-vera.herokuapp.com/";
+const backendApiUrl = "http://0.0.0.0:3000/";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			users: [{}],
+			currentUser: {
+				username: "",
+				token: null
+			},
 			contacts: [],
 			inProcess: [],
 			inContact: [],
@@ -26,6 +31,70 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => console.log(error));
 			},
+			signUp: async (email, username, password) => {
+				let response = await fetch(`${backendApiUrl}register`, {
+					method: "POST",
+					body: JSON.stringify({
+						email: email,
+						username: username,
+						password: password
+					}),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(response => response.json())
+					.then(data => {
+						console.log(data);
+						setStore({ users: data });
+					});
+				if (response.ok) {
+					await getActions().login(username, password);
+					return true;
+				} else {
+					return false;
+				}
+			},
+			// protectedEndpoint: () => {
+			// 	const store = getStore();
+			// 	fetch(`${backendApiUrl}agenda/`, {
+			// 		method: "GET",
+			// 		headers: {
+			// 			"Content-Type": "application/json",
+			// 			Authorization: `Bearer ${store.token}`
+			// 		}
+			// 	}).then(() =>
+			// 		fetch(`${backendApiUrl}vendor`, {
+			// 			method: "GET",
+			// 			headers: {
+			// 				"Content-Type": "application/json",
+			// 				Authorization: `Bearer ${store.token}`
+			// 			}
+			// 		})
+			// 			.then(response => response.json())
+			// 			.then(data => setStore({ currentVendor: data }))
+			// 	);
+			// },
+			login: (username, password) => {
+				fetch(`${backendApiUrl}login`, {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({
+						username: username,
+						password: password
+					})
+				})
+					.then(response => response.json())
+					.then(data => {
+						setStore({ token: data.access_token });
+					});
+			},
+			// logout: () => {
+			// 	let store = getStore();
+			// 	store.token = "";
+			// 	store.user = {};
+			// 	setStore(store);
+			// },
 			addContact: async (full_name, email, address, phone, status, history) => {
 				let response = await fetch(backendApiUrl + "/add", {
 					method: "POST",

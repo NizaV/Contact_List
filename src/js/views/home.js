@@ -16,6 +16,21 @@ export const Home = () => {
 		setLogComp("hide-comp");
 	};
 
+	// async function handleSubmit(event) {
+	// 	event.preventDefault();
+	// 	let login = await actions.loginUser({
+	// 		username: username,
+	// 		password: password
+	// 	});
+
+	// 	if (typeof login === "object") {
+	// 		setError(login.message);
+	// 	} else {
+	// 		if (error !== "") setError("");
+	// 		history.push("/bmr");
+	// 	}
+	// }
+
 	const fadeStyle = useSpring({
 		opacity: 1,
 		from: { opacity: 0 },
