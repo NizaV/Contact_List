@@ -12,8 +12,8 @@
 		"deploy": "node deploy-to-github.js"
 	},
 	"author": {
-		"name": "Alejandro Sanchez",
-		"url": "http://alesanchezr.com/"
+		"name": "Niza Vera",
+		"url": "http://nizavera.com/"
 	},
 	"contributors": [
 		{
