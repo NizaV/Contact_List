@@ -8,7 +8,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			inContact: [],
 			won: [],
 			loss: []
-			//Your data structures, A.K.A Entities
 		},
 		actions: {
 			loadSomeData: () => {
@@ -59,29 +58,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 				getActions().loadSomeData();
 			},
-			// updateOrder: async (updateDict, orderId) => {
-			// 	const url = `${backendApiUrl}orders/${orderId}`;
-			// 	// here your would fetch this url with the updateDict
-			// 	// which will always be an object with properties and
-			// 	// values to be updated for the order with id = orderId
-			// 	// for now we just update the given order in the store
-			// 	const store = getStore();
-			// 	let updatedOrder = {};
-			// 	let updatedList = [];
-			// 	for (let order of store.orders) {
-			// 		if (order.id == orderId) {
-			// 			Object.assign(updatedOrder, order, updateDict);
-			// 			updatedList.push(updatedOrder);
-			// 		} else {
-			// 			updatedList.push(order);
-			// 		}
-			// 	}
-			// 	setStore({
-			// 		orders: updatedList
-			// 	});
-			// },
 			updateStatus: async (updateContact, contactId) => {
-				console.log(updateContact, contactId);
+				// console.log(updateContact, contactId);
 				const store = getStore();
 				let updatedContact = {};
 				let updatedList = [];

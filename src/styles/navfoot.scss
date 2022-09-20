@@ -1,5 +1,18 @@
 @import "./index.scss";
 
+nav.navbar {
+  padding: 1rem 2rem;
+
+  @include md {
+    padding: 1.5rem 2rem;
+  }
+
+  & .btn {
+    padding: 0.575rem 0.95rem;
+    border-radius: 10px;
+  }
+}
+
 .bgstyle {
   background-color: $primary-color;
 }

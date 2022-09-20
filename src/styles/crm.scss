@@ -4,14 +4,34 @@
   box-sizing: border-box;
 }
 
-/* Create four equal columns that floats next to each other */
+.crm-container {
+  margin: 25px auto;
+  padding: 0 15px;
+  overflow: auto;
+
+  @include md {
+    padding: 0;
+  }
+}
+/* Create four equal columns that float next to each other */
 .column {
   border: 2px solid $secondary-color;
-  border-radius: 6px;
-  width: 23%;
+  border-radius: 15px;
+  width: 100%;
+  margin: 15px auto;
+
+  & > h3 {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+  }
+
+  @include lg {
+    width: 23%;
+    margin: 0 auto;
+  }
 }
 
-/* Clear floats after the columns */
+/* Clear float after the columns */
 .row:after {
   content: "";
   display: table;

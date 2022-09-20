@@ -14,7 +14,7 @@ export const AddContact = props => {
 	return (
 		<div className="container">
 			<div className="mb-4">
-				<h1 className="text-center mt-5">{"Add Contact"}</h1>
+				<h1 className="text-center mt-5 font-weight-bold">{"Add Contact"}</h1>
 				<form>
 					<div className="form-group">
 						<label>Full Name</label>
@@ -64,11 +64,11 @@ export const AddContact = props => {
 					<button
 						onClick={() => actions.addContact(name, email, address, phone, status, props.history)}
 						type="button"
-						className="btn btn-info form-control btn-style">
+						className="btn btn-info form-control btn-style mb-3">
 						Save
 					</button>
-					<Link className="mt-3 w-100 text-center text-info" to="/">
-						or get back to contacts
+					<Link className="w-100 text-center text-info" to="/">
+						Back to Contacts
 					</Link>
 				</form>
 			</div>

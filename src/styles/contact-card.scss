@@ -1,11 +1,54 @@
 @import "./index.scss";
 
-.contact-card {
-  border: 1px $secondary-color solid;
+.list-group-item:first-child {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
-.cc-button {
-  color: white;
-  background-color: $primary-color;
-  width: 75%;
+.list-group-item:last-child {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.list-group-item.contact-card {
+  padding: 2rem 1.25rem;
+}
+
+.contact-card {
+  border: 1px $secondary-color solid;
+  
+  & .name {
+    text-transform: capitalize;
+  }
+
+  & .detail {
+    flex: 0 0 50%;
+  }
+
+  &_btn-container {
+    flex-direction: row;
+
+    @include md {
+      flex-direction: column;
+      justify-content: space-around;
+    }
+  }
+
+  &_btn {
+    color: white;
+    background-color: $primary-color;
+    width: 75%;
+    padding: 0.575rem 0.75rem;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0 , 0.20);
+    border-radius: 30px;
+
+    @include md {
+      width: 100%;
+    }
+  }
+
+  @include md {
+      flex-direction: column;
+      justify-content: space-around;
+  }
 }

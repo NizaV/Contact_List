@@ -19,17 +19,17 @@ export const ContactCard = props => {
 					<img
 						src={ProfIcon}
 						alt="Profile Pic"
-						className="rounded-circle mx-auto d-block img-fluid border border-info"
+						className="rounded-circle mx-auto d-block img-fluid border border-info contact-card_img"
 					/>
 					<label className="name lead mt-2">{props.full_name}</label>
 				</div>
-				<div className="col-12 col-md-7 text-center text-sm-left p-4">
-					<div className="row row-cols-2">
-						<div className="col-12 col-md-6 p-3">
+				<div className="col-12 col-md-7 text-center text-sm-left p-4 contact-card_details">
+					<div className="row row-cols-2 details-container">
+						<div className="col-12 col-md-6 p-3 detail">
 							<i className="fas fa-map-marker-alt text-muted mr-3" />
 							<span className="text-muted">{props.address}</span>
 						</div>
-						<div className="col-12 col-md-6 p-3">
+						<div className="col-12 col-md-6 p-3 detail">
 							<span
 								className="fa fa-phone fa-fw text-muted mr-3"
 								data-toggle="tooltip"
@@ -38,7 +38,7 @@ export const ContactCard = props => {
 							/>
 							<span className="text-muted small">{props.phone}</span>
 						</div>
-						<div className="col-12 col-md-6 p-3">
+						<div className="col-12 col-md-6 p-3 detail">
 							<span
 								className="fa fa-envelope fa-fw text-muted mr-3"
 								data-toggle="tooltip"
@@ -47,7 +47,7 @@ export const ContactCard = props => {
 							/>
 							<span className="text-muted small text-truncate">{props.email}</span>
 						</div>
-						<div className="col-12 col-md-6 p-3">
+						<div className="col-12 col-md-6 p-3 detail">
 							<span
 								className="fas fa-spinner text-muted mr-3"
 								data-toggle="tooltip"
@@ -58,13 +58,13 @@ export const ContactCard = props => {
 						</div>
 					</div>
 				</div>
-				<div className="col-12 col-md-2 d-flex flex-column justify-content-around align-items-center">
-					<Link to={`/edit/${props.index}/${props.full_name}`} className="text-center w-100 mb-3 mb-md-0">
-						<button className="btn cc-button">
+				<div className="col-12 col-md-2 d-flex align-items-center contact-card_btn-container">
+					<Link to={`/edit/${props.index}/${props.full_name}`} className="text-center w-100">
+						<button className="btn contact-card_btn">
 							<i className="fas fa-pencil-alt" />
 						</button>
 					</Link>
-					<button className="btn cc-button" onClick={() => props.onDelete()}>
+					<button className="btn contact-card_btn" onClick={() => props.onDelete()}>
 						<i className="fas fa-trash-alt" />
 					</button>
 				</div>
