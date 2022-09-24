@@ -5,7 +5,7 @@ import "../../styles/navfoot.scss";
 export class Navbar extends React.Component {
 	render() {
 		return (
-			<nav className="navbar navbar-light bgstyle mb-3">
+			<nav className="navbar navbar-light bgstyle">
 				<Link to="/">
 					<span className="navbar-brand mb-0 h1 text-light">Home</span>
 				</Link>

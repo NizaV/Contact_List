@@ -16,7 +16,7 @@ export const Contacts = () => {
 		<div className="container">
 			<div className="h-100 mb-3">
 				<div className="d-flex flex-row">
-					<h1>Contacts</h1>
+					<h1 className="mt-3 mb-3 font-weight-bold">Contacts</h1>
 				</div>
 				<div id="contacts" className="h-100" aria-expanded="true">
 					<ul className="list-group pull-down" id="contact-list">
@@ -40,7 +40,7 @@ export const Contacts = () => {
 			</div>
 			<Modal
 				show={state.showModal}
-				text="Warning: Dont do it"
+				text="Warning: This is permanent"
 				contactId={state.id}
 				onClose={() => setState({ showModal: false })}
 			/>

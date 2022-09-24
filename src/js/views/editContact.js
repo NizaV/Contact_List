@@ -25,7 +25,7 @@ export const EditContact = props => {
 	return (
 		<div className="container">
 			<div className="mb-4">
-				<h1 className="text-center mt-5">{"Edit Contact"}</h1>
+				<h1 className="text-center mt-5 font-weight-bold">{"Edit Contact"}</h1>
 				<form>
 					<div className="form-group">
 						<label>Full Name</label>
@@ -83,12 +83,12 @@ export const EditContact = props => {
 								actions.editContact(name, email, address, phone, status, props.match.params.contactId)
 							}
 							type="button"
-							className="btn btn-info form-control btn-style">
+							className="btn btn-info form-control btn-style mb-3">
 							Save
 						</button>
 					</Link>
-					<Link className="mt-3 w-100 text-center text-info" to="/">
-						or get back to contacts
+					<Link className="w-100 text-center text-info" to="/">
+						Back to Contacts
 					</Link>
 				</form>
 			</div>
