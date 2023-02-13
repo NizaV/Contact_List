@@ -11,7 +11,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			loadSomeData: () => {
-				fetch(backendApiUrl + "/agenda")
+				fetch(backendApiUrl + "/agenda", {
+					method: "GET",
+					mode: "no-cors",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
 					.then(response => {
 						if (!response.ok) {
 							throw Error(response.statusText);
